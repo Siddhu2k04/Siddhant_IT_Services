@@ -1,0 +1,191 @@
+/* ===============================
+   PAGE CONTAINER
+================================ */
+
+.hireus-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: #f5f7fa;
+  transition: background 0.5s, color 0.5s;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInPage 1s ease forwards;
+}
+
+body.dark .hireus-page {
+  background: #0a0f1e;
+}
+
+/* ===============================
+   HIRE US CARD
+================================ */
+
+.hireus-card {
+  width: 100%;
+  max-width: 1200px;
+  background: #ffffff;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  transition: background 0.5s, color 0.5s, transform 0.3s;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hireus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 35px 60px rgba(0,0,0,0.2);
+}
+
+body.dark .hireus-card {
+  background: #1e293b;
+  color: #e0e6f2;
+  box-shadow: 0 25px 50px rgba(59,130,246,0.2);
+}
+
+/* ===============================
+   TITLE & INTRO
+================================ */
+
+.hireus-card h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #1d4ed8;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+body.dark .hireus-card h1 {
+  color: #60a5fa;
+}
+
+.hireus-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  margin-bottom: 35px;
+  color: #334155;
+  animation: fadeInUp 1.4s ease forwards;
+}
+
+body.dark .hireus-intro {
+  color: #cbd5e1;
+}
+
+/* ===============================
+   FORM
+================================ */
+
+.hireus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hireus-form input,
+.hireus-form textarea {
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  font-size: 1rem;
+  color: #0f172a;
+  resize: none;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.6s ease forwards;
+}
+
+.hireus-form input::placeholder,
+.hireus-form textarea::placeholder {
+  color: #64748b;
+}
+
+body.dark .hireus-form input,
+body.dark .hireus-form textarea {
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #334155;
+}
+
+body.dark .hireus-form input::placeholder,
+body.dark .hireus-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Focus Effect */
+.hireus-form input:focus,
+.hireus-form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.35);
+  transform: scale(1.02);
+}
+
+/* ===============================
+   BUTTON
+================================ */
+
+.hireus-form button {
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.8s ease forwards;
+}
+
+.hireus-form button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+
+body.dark .hireus-form button {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+}
+
+/* ===============================
+   Animations
+================================ */
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(25px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInPage {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+  .hireus-card {
+    padding: 40px 30px;
+  }
+  .hireus-intro {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hireus-card {
+    padding: 30px 20px;
+  }
+  .hireus-form input,
+  .hireus-form textarea {
+    font-size: 0.95rem;
+  }
+  .hireus-form button {
+    font-size: 1rem;
+    padding: 14px;
+  }
+}

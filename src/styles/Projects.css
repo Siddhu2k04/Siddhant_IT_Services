@@ -1,0 +1,349 @@
+/* ===============================
+   ROOT VARIABLES
+================================ */
+:root {
+  /* LIGHT MODE */
+  --bg-light: #f8fafc;
+  --card-light: #ffffff;
+  --text-light: #111827;
+  --text-muted-light: #64748b;
+  --btn-light: #2563eb;
+  --btn-hover-light: #1d4ed8;
+
+  /* DARK MODE */
+  --bg-dark: #0f172a;
+  --card-dark: #1e293b;
+  --text-dark: #f8fafc;
+  --text-muted-dark: #94a3b8;
+  --btn-dark: #3b82f6;
+  --btn-hover-dark: #2563eb;
+
+  --danger: #ef4444;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --transition: all 0.3s ease;
+}
+
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Work Sans', sans-serif;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+.projects-container {
+  padding: 40px 20px;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.projects-container.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* ===============================
+   SEARCH / FILTER
+================================ */
+
+.category-search {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 16px; /* same as form */
+  margin: 20px auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  border: 1px solid #cbd5f5; /* same border */
+  background: var(--bg-light); /* same background */
+  font-size: 1rem; /* same font size */
+  color: #020617; /* same text color */
+  transition: var(--transition);
+}
+
+/* Focus Effect (same as form) */
+.category-search:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* DARK MODE */
+body.dark .category-search {
+  background: #020617;
+  color: #f8fafc;
+  border: 1px solid #1e293b;
+}
+/* ===============================
+   PROJECT GRID
+================================ */
+.project-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.project-card {
+  background: var(--card-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  padding-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.projects-container.dark .project-card {
+  background: var(--card-dark);
+}
+
+.project-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  transition: transform 0.3s;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card h4 {
+  margin: 10px 0 5px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted-light);
+}
+
+.projects-container.dark .project-card p {
+  color: var(--text-muted-dark);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.preview-btn,
+.buy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.preview-btn {
+  background: var(--btn-light);
+  color: #fff;
+}
+
+.preview-btn:hover {
+  background: var(--btn-hover-light);
+}
+
+.projects-container.dark .preview-btn {
+  background: var(--btn-dark);
+  color: var(--text-dark);
+}
+
+.projects-container.dark .preview-btn:hover {
+  background: var(--btn-hover-dark);
+}
+
+/* BUY BUTTON */
+.buy-btn {
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.buy-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
+}
+
+.buy-btn:active {
+  transform: scale(0.97);
+}
+
+.projects-container.dark .buy-btn {
+  background: linear-gradient(135deg, #16a34a, #0e100f);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+/* ===============================
+   model
+================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: var(--bg-light);
+  color: var(--text-light);
+  width: 100%;
+  max-width: 1800px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+  transition: background 0.3s, color 0.3s;
+}
+
+.projects-container.dark .modal-card {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.modal-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.projects-container.dark .close-btn {
+  color: var(--text-dark);
+}
+
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card-buttons a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--btn-light);
+  color: var(--text-light);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.category-search {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+
+
+.card-buttons a:hover {
+  background: var(--btn-hover-light);
+}
+
+.projects-container.dark .card-buttons a {
+  background: var(--btn-dark);
+  color: var(--text-dark);
+}
+
+.projects-container.dark .card-buttons a:hover {
+  background: var(--btn-hover-dark);
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-links,
+  .card-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-links a,
+  .project-links button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .project-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+
+
+.payment-input {
+
+  margin: 4px 0;
+  
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

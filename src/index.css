@@ -1,13 +1,155 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ================================
+   THEME VARIABLES (ONLY BLACK & WHITE)
+================================ */
+:root {
+  /* LIGHT MODE */
+  --bg-light: #ffffff;
+  --bg-secondary-light: #f4f4f4;
+  --text-light: #111111;
+  --text-muted-light: #555555;
+  --border-light: #e5e5e5;
+
+  --btn-light: #000000;
+  --btn-hover-light: #333333;
+
+  /* DARK MODE */
+  --bg-dark: #000000;
+  --bg-secondary-dark: #111111;
+  --text-dark: #ffffff;
+  --text-muted-dark: #bbbbbb;
+  --border-dark: #222222;
+
+  --btn-dark: #ffffff;
+  --btn-hover-dark: #cccccc;
+
+  /* COMMON */
+  --transition: all 0.3s ease;
+  --radius: 8px;
+  --font-main: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ================================
+   RESET & BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================================
+   TEXT HELPERS
+================================ */
+.text-muted {
+  color: var(--text-muted-light);
+}
+
+body.dark .text-muted {
+  color: var(--text-muted-dark);
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--btn-light);
+  color: var(--bg-light);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--btn-hover-light);
+}
+
+body.dark .btn {
+  background: var(--btn-dark);
+  color: var(--bg-dark);
+}
+
+body.dark .btn:hover {
+  background: var(--btn-hover-dark);
+}
+
+/* ================================
+   CARDS / SECTIONS
+================================ */
+.card {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: var(--transition);
+}
+
+body.dark .card {
+  background: var(--bg-secondary-dark);
+  border-color: var(--border-dark);
+}
+
+/* ================================
+   INPUTS
+================================ */
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background: var(--bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--btn-light);
+}
+
+body.dark input:focus,
+body.dark textarea:focus {
+  border-color: var(--btn-dark);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }

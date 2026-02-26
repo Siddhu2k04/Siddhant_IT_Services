@@ -1,0 +1,498 @@
+/* ===============================
+   ROOT VARIABLES (EASY THEMING)
+================================ */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --danger: #ef4444;
+  --bg-light: #f8fafc;
+  --bg-card: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --transition: 0.3s ease;
+}
+
+/* ===============================
+   DASHBOARD PAGE
+================================ */
+.seller-dashboard {
+  min-height: calc(100vh - 140px);
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seller-dashboard h2,
+.seller-dashboard h3 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+body.dark .seller-dashboard h2,
+body.dark .seller-dashboard h3 {
+  color: #f8fafc;
+}
+
+/* ===============================
+   DASHBOARD TABS
+================================ */
+.dashboard-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.dashboard-tabs button {
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dashboard-tabs button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   STATS GRID
+================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: #111827;
+  color: #fff;
+  padding: 22px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.stat-card h3 {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.stat-card p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ===============================
+   ADD PROJECT FORM
+================================ */
+.add-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.1);
+  margin-bottom: 40px;
+}
+
+.add-project-form input,
+.add-project-form textarea,
+.add-project-form select {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #cbd5f5;
+  background: var(--bg-light);
+  font-size: 1rem;
+  color: #020617;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.add-project-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-project-form input:focus,
+.add-project-form textarea:focus,
+.add-project-form select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.add-project-form button {
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-project-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+/* DARK MODE FORM */
+body.dark .add-project-form {
+  background: #020617;
+}
+
+body.dark .add-project-form input,
+body.dark .add-project-form textarea,
+body.dark .add-project-form select {
+  background: #020617;
+  color: #f8fafc;
+  border: 1px solid #1e293b;
+}
+
+/* ===============================
+   PROJECT GRID
+================================ */
+.seller-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+  transition: var(--transition);
+}
+
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.project-card h4 {
+  margin: 16px;
+  font-size: 1.1rem;
+
+  
+}
+
+.project-card p {
+  margin: 0 16px 16px;
+  color: var(--text-muted);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.3);
+}
+
+/* DARK MODE CARDS */
+body.dark .project-card {
+  background: #0f172a;
+}
+
+body.dark .project-card h4 {
+  color: #f8fafc;
+}
+
+body.dark .project-card p {
+  color: #94a3b8;
+}
+
+/* ===============================
+   PROFESSIONAL PROJECT MODAL
+================================ */
+
+/* Overlay */
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 20px;
+  overflow-y: auto;
+
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+/* Modal Container */
+.project-modal {
+  background: var(--bg-card);
+  color: var(--text-dark);
+
+  width: 100%;
+  max-width: 1000px;
+
+  border-radius: 18px;
+  padding: 32px;
+  position: relative;
+
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+
+  max-height: 90vh;
+  overflow-y: auto;
+
+  animation: fadeIn 0.25s ease;
+}
+
+/* Image */
+.project-modal img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+/* Title */
+.project-modal h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Description */
+.project-modal p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 8px 0;
+  color: var(--text-muted, #64748b);
+}
+
+/* ===============================
+   BUTTON SECTION
+================================ */
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.project-links a,
+.project-links button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Primary Link */
+.project-links a {
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Buy Button */
+.project-links button {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+}
+
+.project-links button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(34, 197, 94, 0.35);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.delete-btn:hover {
+  box-shadow: 0 12px 25px rgba(239, 68, 68, 0.35);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: inherit;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .project-modal {
+    padding: 24px;
+    max-width: 95%;
+  }
+
+  .project-modal img {
+    max-height: 280px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .project-modal-overlay {
+    padding: 15px 10px;
+  }
+
+  .project-modal {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .project-modal img {
+    max-height: 220px;
+  }
+
+  .project-modal h2 {
+    font-size: 20px;
+  }
+}
+
+/* ===============================
+   DARK MODE SUPPORT
+================================ */
+
+body.dark .project-modal {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark .project-modal p {
+  color: #94a3b8;
+}
+
+body.dark .project-links a {
+  background: #3b82f6;
+}
+
+body.dark .project-links a:hover {
+  background: #2563eb;
+}
+
+
+
+/* ===============================
+   NOTIFICATIONS
+================================ */
+.notification {
+  background: #ecfeff;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  border-left: 4px solid #06b6d4;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .dashboard-tabs {
+    flex-direction: column;
+  }
+
+  .dashboard-tabs button {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .seller-dashboard {
+    padding: 20px 12px;
+  }
+
+  .project-card img {
+    height: 140px;
+  }
+
+  .project-modal img {
+    height: 180px;
+  }
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #ef4444;
+  color: white;
+  transform: rotate(90deg);
+}

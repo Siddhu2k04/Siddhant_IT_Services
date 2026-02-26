@@ -1,0 +1,234 @@
+/* ================================
+   THEME VARIABLES
+================================ */
+:root {
+  /* LIGHT MODE */
+  --bg-light: #ffffff;
+  --nav-bg-light: #000000;
+  --text-light: #000000;
+  --overlay-bg-light: #ffffff;
+
+  /* DARK MODE */
+  --bg-dark: #000000;
+  --nav-bg-dark: #ffffff;
+  --text-dark: #ffffff;
+  --overlay-bg-dark: #000000;
+
+  --transition: all 0.3s ease;
+}
+
+/* ================================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   HEADER (ALWAYS VISIBLE)
+================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 40px;
+  background: var(--nav-bg-light);
+  z-index: 1000;
+
+  transition: var(--transition);
+}
+
+.header.dark {
+  background: var(--nav-bg-dark);
+}
+
+/* ================================
+   LOGO
+================================ */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 42px;
+  height: 42px;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--bg-light);
+}
+
+.header.dark .logo-text {
+  color: var(--bg-dark);
+}
+
+/* ================================
+   HAMBURGER
+================================ */
+.hamburger {
+  width: 34px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--bg-light);
+  left: 0;
+  transition: var(--transition);
+}
+
+.header.dark .hamburger span {
+  background: var(--bg-dark);
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 10px; }
+.hamburger span:nth-child(3) { top: 20px; }
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* ================================
+   OVERLAY MENU (BELOW NAVBAR)
+================================ */
+.menu-overlay {
+  position: fixed;
+  top: 70px; /* BELOW NAVBAR */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+
+  background: var(--overlay-bg-light);
+  opacity: 0;
+  visibility: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.header.dark .menu-overlay {
+  background: var(--overlay-bg-dark);
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================================
+   NAV LINKS
+================================ */
+.nav {
+  list-style: none;
+  text-align: center;
+}
+
+.nav li {
+  margin: 18px 0;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.menu-overlay.open .nav li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav a {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.header.dark .nav a {
+  color: var(--text-dark);
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+/* ================================
+   DARK MODE BUTTON
+================================ */
+.dark-toggle {
+  margin-top: 15px;
+  padding: 10px 22px;
+  font-size: 15px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dark-toggle:hover {
+  opacity: 0.7;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 20px;
+  }
+
+  .nav a {
+    font-size: 26px;
+  }
+}
+
+/* ================================
+   PAGE OFFSET FIX
+================================ */
+body {
+  padding-top: 70px; /* Prevent content hiding under navbar */
+}
+
+
+/* ================================
+   AUTO HIDE HEADER ON SCROLL
+================================ */
+
+.header {
+  transition: transform 0.4s ease, background 0.3s ease;
+}
+
+/* Hide state */
+.header.hide {
+  transform: translateY(-100%);
+}

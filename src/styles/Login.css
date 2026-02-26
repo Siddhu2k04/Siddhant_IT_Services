@@ -1,0 +1,176 @@
+/* ===============================
+   PAGE CONTAINER
+================================ */
+
+.seller-login-page {
+  min-height: calc(100vh - 140px);
+  padding: 40px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+}
+
+/* ===============================
+   LOGIN CARD
+================================ */
+
+.seller-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.15);
+}
+
+/* Title */
+.seller-login-card h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 28px;
+}
+
+/* Form */
+.seller-login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Inputs */
+.seller-login-card input {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.seller-login-card input::placeholder {
+  color: #64748b;
+}
+
+.seller-login-card input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Email Button */
+.seller-login-card button[type="submit"] {
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.seller-login-card button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 24px 0;
+  font-size: 0.9rem;
+  color: #64748b;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  width: 40%;
+  background: #e5e7eb;
+  position: absolute;
+  top: 50%;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Google Button */
+.google-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  background: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.google-btn:hover {
+  background: #f1f5f9;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .seller-login-card {
+    padding: 28px 22px;
+  }
+}
+body.dark .seller-login-page {
+  background: #020617;
+}
+
+body.dark .seller-login-card {
+  background: #0f172a;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+}
+
+body.dark .seller-login-card h2 {
+  color: #f8fafc;
+}
+
+body.dark .seller-login-card input {
+  background: #020617;
+  color: #f8fafc;
+  border: 1px solid #1e293b;
+}
+
+body.dark .seller-login-card input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark .seller-login-card input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+body.dark .seller-login-card button[type="submit"] {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+}
+
+body.dark .divider {
+  color: #94a3b8;
+}
+
+body.dark .divider::before,
+body.dark .divider::after {
+  background: #1e293b;
+}
+
+body.dark .google-btn {
+  background: #ffffff;
+  color: #020617;
+}

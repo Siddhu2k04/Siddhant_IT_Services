@@ -1,0 +1,485 @@
+/* ========================== */
+/* Colors & Theme */
+:root {
+    --bg-light: #ffffff;      /* Light mode background */
+    --bg-dark: #000000;       /* Dark mode background */
+    --text-light: #000000;    /* Dark text for light mode */
+    --text-dark: #ffffff;     /* Light text for dark mode */
+
+    --btn-light: #007bff;     /* Blue button */
+    --btn-hover-light: #0056b3;
+    --btn-dark: #1e90ff;      /* Bright blue for dark mode */
+    --btn-hover-dark: #0d6efd;
+
+    --card-light: #f8f9fa;    /* Light cards */
+    --card-dark: #3d3131;     /* Dark cards */
+
+    --shadow-light: rgba(0,0,0,0.1);
+    --shadow-dark: rgba(255,255,255,0.1);
+
+    --accent-color: #010114da; /* Blue accent */
+    --dmode:#f8f9fa;
+}
+
+/* ========================== */
+/* Global Styles */
+.home-container {
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 80vh;
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: background 0.5s, color 0.5s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-container.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* ========================== */
+/* Animations */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+section { animation: fadeInUp 1s ease forwards; }
+
+/* ========================== */
+/* Hero Section */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: var(--btn-light);
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.showcase_btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+
+    /* Light mode default */
+    background: var(--btn-light);
+    color: #ffffff;
+
+    font-weight: 500;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+/* ========================== */
+/* Buttons Hover */
+.btn:hover,
+.showcase_btn:hover {
+    background: var(--btn-hover-light);
+    transform: translateY(-3px) scale(1.05);
+    animation: pulse 1s infinite;
+}
+
+/* ========================== */
+/* Dark Mode Buttons */
+.home-container.dark .btn,
+.home-container.dark .showcase_btn {
+    background: var(--btn-dark);
+    color: #ffffff; /* FIX: text visible */
+    box-shadow: 0 4px 15px var(--shadow-dark);
+}
+
+/* Dark Mode Hover */
+.home-container.dark .btn:hover,
+.home-container.dark .showcase_btn:hover {
+    background: var(--btn-hover-dark);
+}
+
+
+/* ========================== */
+/* Categories Section */
+.categories {
+    margin-top: 60px;
+}
+
+.categories h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--dmode);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.category-card {
+    background: var(--card-light);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 30px var(--shadow-light);
+}
+
+.category-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.5s;
+}
+
+.category-card img:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.category-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.category-card .btn {
+    width: 100%;
+}
+
+.home-container.dark .category-card {
+    background: var(--card-dark);
+    box-shadow: 0 4px 20px var(--shadow-dark);
+}
+
+.home-container.dark .category-card .btn {
+    background: var(--btn-dark);
+}
+
+.home-container.dark .category-card .btn:hover {
+    background: var(--btn-hover-dark);
+}
+
+/* ========================== */
+/* Why Choose Us */
+.why-choose-us {
+    margin: 80px 0;
+}
+
+.why-choose-us h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: var(--card-light);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+.feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+   
+}
+
+
+
+/* Dark mode Features */
+.home-container.dark .feature-card {
+    background: var(--card-dark);
+    box-shadow: 0 4px 20px var(--shadow-dark);
+}
+/* ========================== */
+/* Projects Showcase Section */
+.projects-showcase {
+    margin: 80px 0;
+    text-align: center; /* Center heading */
+}
+
+.projects-showcase h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--dmode); /* Will adapt to light/dark */
+}
+
+/* Grid Layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+   
+    align-items: stretch;
+}
+
+/* Project Card */
+.project-card {
+    background: var(--card-light);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+/* Project Image */
+.project-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.5s ease;
+}
+
+/* Hover Image Animation */
+.project-card img:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+/* Project Title */
+.project-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Project Category / Price */
+.project-card p {
+    margin: 4px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Light/Dark Mode */
+.home-container.dark .project-card {
+    background: var(--card-dark);
+    box-shadow: 0 4px 20px var(--shadow-dark);
+}
+
+.home-container.dark .project-card h4,
+.home-container.dark .project-card p {
+    color: var(--text-dark);
+}
+
+/* Buttons inside project card */
+.project-card .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.home-container.dark .project-card .btn {
+    background: var(--btn-dark);
+    color: var(--text-dark);
+}
+
+.home-container.dark .project-card .btn:hover {
+    background: var(--btn-hover-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .project-card img {
+        height: 140px;
+    }
+}
+/* ========================== */
+/* Testimonials */
+.testimonials {
+    margin: 80px 0;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--dmode);
+}
+
+.testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.testimonial-card {
+    background: var(--card-light);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+.home-container.dark .testimonial-card {
+    background: var(--card-dark);
+    box-shadow: 0 4px 20px var(--shadow-dark);
+}
+
+/* ========================== */
+/* Contact / CTA */
+.contact-cta {
+    margin: 80px 0;
+}
+
+.contact-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--dmode);
+}
+
+.contact-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.contact-cta .buttons a.btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ========================== */
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .category-card img, .project-card img { height: 120px; }
+}
+
+
+/* ========================== */
+/* FIX: Heading Visibility Issue */
+
+/* HERO HEADING */
+.home-container.dark .hero h1 {
+    color: var(--dmode);
+}
+
+/* SECTION HEADINGS */
+.home-container.dark .categories h2,
+.home-container.dark .projects-showcase h2,
+.home-container.dark .testimonials h2,
+.home-container.dark .contact-cta h2,
+.home-container.dark .why-choose-us h2 {
+    color: var(--dmode);
+}
+
+
+/* ========================== */
+/* FIX: Categories Heading Visibility */
+
+/* Light mode fix */
+.home-container:not(.dark) .categories h2 {
+    color: var(--accent-color);
+}
+
+/* Dark mode fix (already needed) */
+.home-container.dark .categories h2 {
+    color: var(--dmode);
+}
+
+/* ========================== */
+/* FIX: ALL SECTION HEADING VISIBILITY */
+
+/* LIGHT MODE — make headings dark */
+.home-container:not(.dark) .categories h2,
+.home-container:not(.dark) .projects-showcase h2,
+.home-container:not(.dark) .testimonials h2,
+.home-container:not(.dark) .contact-cta h2 {
+    color: var(--accent-color);
+}
+
+/* DARK MODE — make headings light */
+.home-container.dark .categories h2,
+.home-container.dark .projects-showcase h2,
+.home-container.dark .testimonials h2,
+.home-container.dark .contact-cta h2 {
+    color: var(--dmode);
+}
+
+
+
+/* ========================== */
+/* FIX: Dark mode button white bg & black text */
+
+.home-container.dark .btn,
+.home-container.dark .showcase_btn {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Dark mode hover */
+.home-container.dark .btn:hover,
+.home-container.dark .showcase_btn:hover {
+    background: #f1f1f1;
+    color: #000000;
+}

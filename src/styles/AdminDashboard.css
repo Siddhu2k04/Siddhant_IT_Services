@@ -1,0 +1,335 @@
+/* ================================
+   THEME VARIABLES
+================================ */
+:root {
+  --bg-color: #f4f6fb;
+  --card-bg: #ffffff;
+  --text-color: #1f2937;
+  --muted-text: #6b7280;
+  --border-color: #e5e7eb;
+
+  --primary: #2563eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+  --bg-color: #0f172a;
+  --card-bg: #111827;
+  --text-color: #f9fafb;
+  --muted-text: #9ca3af;
+  --border-color: #1f2937;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ================================
+   ADMIN DASHBOARD
+================================ */
+.admin-dashboard {
+  min-height: 100vh;
+  background: var(--bg-color);
+  padding: 40px 20px;
+  color: var(--text-color);
+  max-width: 1200px;
+  margin: auto;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* ================================
+   TABS
+================================ */
+.dashboard-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.dashboard-tabs button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.dashboard-tabs button.active,
+.dashboard-tabs button:hover {
+  background: #1e40af;
+}
+
+/* ================================
+   STATS GRID
+================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 24px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card h3 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.stat-card.approved {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+}
+
+.stat-card.pending {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+}
+
+.admin-note {
+  background: #ecfeff;
+  padding: 14px;
+  border-left: 5px solid #06b6d4;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ================================
+   PROJECT GRID
+================================ */
+.project-approval-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-body h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-body p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--muted-text);
+}
+
+.card-body b {
+  color: var(--text-color);
+}
+
+.status {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.pending {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.admin-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.admin-buttons button,
+.approve-btn,
+.reject-btn {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.approve-btn {
+  background: var(--success);
+  color: #fff;
+}
+
+.reject-btn {
+  background: var(--danger);
+  color: #fff;
+}
+
+.admin-buttons button:hover,
+.approve-btn:hover,
+.reject-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* ================================
+   BUYERS TABLE
+================================ */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table-wrap th,
+.table-wrap td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-wrap th {
+  background: var(--primary);
+  color: #fff;
+}
+
+.table-wrap tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================
+   HIRE REQUESTS GRID
+================================ */
+.hire-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.hire-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.hire-card:hover {
+  transform: translateY(-4px);
+}
+
+.hire-card h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.hire-card p {
+  font-size: 14px;
+  color: var(--muted-text);
+  margin-bottom: 4px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .project-approval-grid,
+  .hire-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-tabs button {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-approval-grid,
+  .hire-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard h2 {
+    font-size: 26px;
+  }
+
+  .project-card img {
+    height: 140px;
+  }
+
+  .card-body h3 {
+    font-size: 16px;
+  }
+}

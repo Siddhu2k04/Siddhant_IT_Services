@@ -1,0 +1,99 @@
+/* ===============================
+   FOLLOW PAGE
+================================ */
+
+/* LIGHT THEME (Default) */
+.follow-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  padding: 40px 20px;
+  transition: 0.4s ease;
+}
+
+.follow-container {
+  text-align: center;
+}
+
+.follow-title {
+  color: #0f172a;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+/* Social Icons Layout */
+.social-icons {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Base Icon Style */
+.icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.icon:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+}
+
+/* Brand Hover Colors */
+.whatsapp:hover { background: #25d366; }
+.linkedin:hover { background: #0077b5; }
+.instagram:hover { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
+.facebook:hover { background: #1877f2; }
+.github:hover { background: #333; }
+.twitter:hover { background: #1da1f2; }
+
+/* ===============================
+   DARK MODE
+================================ */
+
+body.dark .follow-page {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+body.dark .follow-title {
+  color: #ffffff;
+}
+
+body.dark .icon {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .icon:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .icon {
+    width: 65px;
+    height: 65px;
+    font-size: 26px;
+  }
+}

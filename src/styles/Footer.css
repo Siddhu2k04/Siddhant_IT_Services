@@ -1,0 +1,178 @@
+/* ================================
+   THEME VARIABLES
+================================ */
+:root {
+  --footer-bg: #f8fafc;
+  --footer-text: #1f2937;
+  --footer-link: #334155;
+  --footer-border: rgba(0, 0, 0, 0.1);
+  --footer-hover: #2563eb;
+  --transition: all 0.3s ease;
+}
+
+body.dark {
+  --footer-bg: #020617;
+  --footer-text: #f8fafc;
+  --footer-link: #cbd5f5;
+  --footer-border: rgba(255, 255, 255, 0.12);
+  --footer-hover: #60a5fa;
+}
+
+/* ================================
+   FOOTER BASE
+================================ */
+.footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 60px 20px 20px;
+  transition: var(--transition);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* ================================
+   SECTIONS
+================================ */
+.footer-section h2,
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-section h2 {
+  font-size: 22px;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* ================================
+   LINKS & HOVER EFFECT
+================================ */
+.footer-section a {
+  text-decoration: none;
+  color: var(--footer-link);
+  position: relative;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.footer-section a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--footer-hover);
+  transition: width 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--footer-hover);
+  transform: translateX(4px);
+}
+
+.footer-section a:hover::after {
+  width: 100%;
+}
+
+/* ================================
+   ICON LINKS ANIMATION
+================================ */
+.footer-section a .icon {
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.footer-section a:hover .icon {
+  transform: translateY(-2px);
+}
+
+/* ================================
+   BOTTOM BAR
+================================ */
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 15px;
+  border-top: 1px solid var(--footer-border);
+  font-size: 13px;
+  opacity: 0.85;
+  transition: var(--transition);
+}
+
+/* ================================
+   RESPONSIVE FIXES
+================================ */
+
+/* Large Tablets & Small Laptops */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .footer-section {
+    text-align: left;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer {
+    padding: 50px 16px 20px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .footer-section ul li {
+    justify-content: center;
+  }
+
+  .footer-section a {
+    justify-content: center;
+  }
+
+  /* Disable slide transform on hover for mobile */
+  .footer-section a:hover {
+    transform: none;
+  }
+}
