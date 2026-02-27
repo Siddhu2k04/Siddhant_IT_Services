@@ -6,7 +6,7 @@ import {
   where,
   addDoc
 } from "firebase/firestore";
-import { db, auth } from "../config/firebase";
+
 import { openRazorpay } from "../utils/razorpay";
 import "../styles/Projects.css";
 
