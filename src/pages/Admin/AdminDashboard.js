@@ -118,18 +118,20 @@ const AdminDashboard = () => {
                 <th>Project</th>
                 <th>Buyer</th>
                 <th>Email</th>
+                <th>Phone</th>
                 <th>Amount</th>
               </tr>
             </thead>
             <tbody>
-              {payments.map(p => (
-                <tr key={p.id}>
-                  <td>{projects.find(proj => proj.id === p.projectId)?.title || p.projectId}</td>
-                  <td>{p.buyerName}</td>
-                  <td>{p.buyerEmail}</td>
-                  <td>₹{p.amount}</td>
-                </tr>
-              ))}
+             {payments.map(p => (
+  <tr key={p.id}>
+    <td>{projects.find(proj => proj.id === p.projectId)?.title || p.projectId}</td>
+    <td>{p.name}</td>
+    <td>{p.email}</td>
+    <td>{p.phone}</td>
+    <td>₹{p.amount}</td>
+  </tr>
+))}
             </tbody>
           </table>
         </div>

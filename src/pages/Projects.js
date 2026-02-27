@@ -30,30 +30,42 @@ const [errors, setErrors] = React.useState({});
 const validate = () => {
   let newErrors = {};
 
-  // Name validation (only letters and spaces)
-  if (!name.trim()) {
+  // ===== FULL NAME VALIDATION =====
+  const trimmedName = name.trim();
+
+  if (!trimmedName) {
     newErrors.name = "Full name is required";
-  } else if (!/^[A-Za-z\s]+$/.test(name)) {
-    newErrors.name = "Name should contain only letters";
+  } else if (trimmedName.length < 3) {
+    newErrors.name = "Name must be at least 3 characters";
+  } else if (!/^[A-Za-z\s]+$/.test(trimmedName)) {
+    newErrors.name = "Name should contain only letters and spaces";
   }
 
-  // Email validation
-  if (!email.trim()) {
-    newErrors.email = "Email is required";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  // ===== EMAIL VALIDATION =====
+  const trimmedEmail = email.trim();
+
+  if (!trimmedEmail) {
+    newErrors.email = "Email address is required";
+  } else if (
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(trimmedEmail)
+  ) {
     newErrors.email = "Enter a valid email address";
   }
 
-  // Phone validation (10 digits)
-  if (!phone.trim()) {
+  // ===== PHONE VALIDATION =====
+  const trimmedPhone = phone.trim();
+
+  if (!trimmedPhone) {
     newErrors.phone = "Mobile number is required";
-  } else if (!/^[0-9]{10}$/.test(phone)) {
-    newErrors.phone = "Mobile number must be 10 digits";
+  } else if (!/^[6-9]\d{9}$/.test(trimmedPhone)) {
+    newErrors.phone =
+      "Enter valid 10-digit Indian mobile number (starting with 6-9)";
   }
 
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
-};
+}; 
+
   /* ================= FETCH APPROVED PROJECTS ================= */
   useEffect(() => {
     const fetchProjects = async () => {
@@ -178,21 +190,25 @@ const validate = () => {
   </button>
 ) : (
   <div className="payment-form">
-
- <input
+<input
   type="text"
   placeholder="Full Name"
   value={name}
-  onChange={(e) => setName(e.target.value)}
+  onChange={(e) => {
+    setName(e.target.value);
+    setErrors({ ...errors, name: "" });
+  }}
   className="payment-input"
 />
 {errors.name && <p className="error">{errors.name}</p>}
-
 <input
   type="email"
   placeholder="Email Address"
   value={email}
-  onChange={(e) => setEmail(e.target.value)}
+  onChange={(e) => {
+    setEmail(e.target.value);
+    setErrors({ ...errors, email: "" });
+  }}
   className="payment-input"
 />
 {errors.email && <p className="error">{errors.email}</p>}
@@ -201,10 +217,15 @@ const validate = () => {
   type="tel"
   placeholder="WhatsApp Number"
   value={phone}
-  onChange={(e) => setPhone(e.target.value)}
+  maxLength="10"
+  onChange={(e) => {
+    setPhone(e.target.value.replace(/\D/g, "")); // only numbers
+    setErrors({ ...errors, phone: "" });
+  }}
   className="payment-input"
 />
 {errors.phone && <p className="error">{errors.phone}</p>}
+
 
    <button
   className="pay-btn"
@@ -220,6 +241,7 @@ const validate = () => {
           email,
           phone,
           projectId: selectedProject.id,
+          amount: selectedProject.price,
           paymentId: response.razorpay_payment_id,
           status: "success",
           createdAt: new Date()
