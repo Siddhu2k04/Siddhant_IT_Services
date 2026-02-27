@@ -13,20 +13,7 @@ import "../styles/Projects.css";
 
 
 
-/* ================= PAYMENT CHECK ================= */
-const hasPurchased = async (projectId) => {
-  if (!auth.currentUser) return false;
 
-  const q = query(
-    collection(db, "payments"),
-    where("userId", "==", auth.currentUser.uid),
-    where("projectId", "==", projectId),
-    where("status", "==", "success")
-  );
-
-  const snap = await getDocs(q);
-  return !snap.empty;
-};
 
 const Projects = ({ darkMode }) => {
   const [projects, setProjects] = useState([]);
