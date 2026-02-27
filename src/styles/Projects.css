@@ -347,3 +347,10 @@ body.dark .category-search {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}

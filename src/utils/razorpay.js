@@ -1,6 +1,6 @@
 export const openRazorpay = ({ amount, onSuccess }) => {
   const options = {
-    key: "YOUR_RAZORPAY_KEY_ID", // test key
+    key: "rzp_live_SKnAAXsoSOko7w", // test key
     amount: amount * 100,
     currency: "INR",
     name: "Siddhant IT Services",

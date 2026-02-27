@@ -21,11 +21,39 @@ const Projects = ({ darkMode }) => {
   const [searchCategory, setSearchCategory] = useState("");
 
 
-  
-const [showForm, setShowForm] = useState(false);
-const [name, setName] = useState("");
-const [email, setEmail] = useState("");
-const [phone, setPhone] = useState("");
+const [showForm, setShowForm] = useState(false); 
+const [name, setName] = React.useState("");
+const [email, setEmail] = React.useState("");
+const [phone, setPhone] = React.useState("");
+const [errors, setErrors] = React.useState({});
+
+const validate = () => {
+  let newErrors = {};
+
+  // Name validation (only letters and spaces)
+  if (!name.trim()) {
+    newErrors.name = "Full name is required";
+  } else if (!/^[A-Za-z\s]+$/.test(name)) {
+    newErrors.name = "Name should contain only letters";
+  }
+
+  // Email validation
+  if (!email.trim()) {
+    newErrors.email = "Email is required";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    newErrors.email = "Enter a valid email address";
+  }
+
+  // Phone validation (10 digits)
+  if (!phone.trim()) {
+    newErrors.phone = "Mobile number is required";
+  } else if (!/^[0-9]{10}$/.test(phone)) {
+    newErrors.phone = "Mobile number must be 10 digits";
+  }
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
   /* ================= FETCH APPROVED PROJECTS ================= */
   useEffect(() => {
     const fetchProjects = async () => {
@@ -151,60 +179,60 @@ const [phone, setPhone] = useState("");
 ) : (
   <div className="payment-form">
 
-    <input
-      type="text"
-      placeholder="Full Name"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      className="payment-input"
-    />
+ <input
+  type="text"
+  placeholder="Full Name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  className="payment-input"
+/>
+{errors.name && <p className="error">{errors.name}</p>}
 
-    <input
-      type="email"
-      placeholder="Email Address"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      className="payment-input"
-    />
+<input
+  type="email"
+  placeholder="Email Address"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="payment-input"
+/>
+{errors.email && <p className="error">{errors.email}</p>}
 
-    <input
-      type="tel"
-      placeholder="WhatsApp Number"
-      value={phone}
-      onChange={(e) => setPhone(e.target.value)}
-      className="payment-input"
-    />
+<input
+  type="tel"
+  placeholder="WhatsApp Number"
+  value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+  className="payment-input"
+/>
+{errors.phone && <p className="error">{errors.phone}</p>}
 
-    <button
-      className="pay-btn"
-      onClick={() => {
-        if (!name || !email || !phone) {
-          alert("Please fill all details");
-          return;
-        }
+   <button
+  className="pay-btn"
+  onClick={() => {
+    if (!validate()) return; // 👈 use proper validation
 
-        openRazorpay({
-          amount: selectedProject.price,
-          onSuccess: async (response) => {
+    openRazorpay({
+      amount: selectedProject.price,
+      onSuccess: async (response) => {
 
-            await addDoc(collection(db, "payments"), {
-              name,
-              email,
-              phone,
-              projectId: selectedProject.id,
-              paymentId: response.razorpay_payment_id,
-              status: "success",
-              createdAt: new Date()
-            });
-
-            alert("Payment successful! GitHub unlocked 🔓");
-            window.open(selectedProject.githubLink, "_blank");
-          }
+        await addDoc(collection(db, "payments"), {
+          name,
+          email,
+          phone,
+          projectId: selectedProject.id,
+          paymentId: response.razorpay_payment_id,
+          status: "success",
+          createdAt: new Date()
         });
-      }}
-    >
-      Confirm & Pay
-    </button>
+
+        alert("Payment successful! GitHub unlocked 🔓");
+        window.open(selectedProject.githubLink, "_blank");
+      }
+    });
+  }}
+>
+  Confirm & Pay
+</button>
 
   </div>
 )}
