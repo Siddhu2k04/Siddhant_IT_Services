@@ -14,7 +14,7 @@ import "../styles/Projects.css";
 
 
 /* ================= PAYMENT CHECK ================= */
-const hasPaid = async (projectId) => {
+const hasPurchased = async (projectId) => {
   if (!auth.currentUser) return false;
 
   const q = query(

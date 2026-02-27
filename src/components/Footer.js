@@ -44,7 +44,7 @@ const Footer = ({ darkMode }) => {
 
   <a 
   href="https://mail.google.com/mail/?view=cm&fs=1&to=siddhantitservices2024@gmail.com"
-  target="_blank">
+  target="_blank" rel="noopener noreferrer">
   📧siddhantitservices2024@gmail.com
 </a>
 

@@ -44,14 +44,7 @@ const Follow = () => {
             <FaInstagram />
           </a>
 
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon facebook"
-          >
-            <FaFacebook />
-          </a>
+         
 
           <a
             href="https://github.com/Siddhu2k04"

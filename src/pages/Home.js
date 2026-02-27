@@ -128,7 +128,7 @@ const Home = ({ darkMode }) => {
         <p>Contact us now for custom projects or ready-made solutions.</p>
         <div className="buttons">
           <a href="tel:+919518941034" className="btn">Call Now</a>
-          <a href="https://wa.me/919518941034" target="_blank" className="btn">WhatsApp</a>
+          <a href="https://wa.me/919518941034" target="_blank" rel="noopener noreferrer" className="btn">WhatsApp</a>
         </div>
       </section>
 
