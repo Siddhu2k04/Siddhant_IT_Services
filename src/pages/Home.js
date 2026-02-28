@@ -2,6 +2,24 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaPython,
+  FaJava,
+  FaGitAlt,
+  FaGithub,
+  FaAndroid 
+} from "react-icons/fa";
+
+import {
+  SiFirebase,
+  SiTensorflow,
+  SiMongodb
+} from "react-icons/si";
+
 const categories = [
   { name: "Web Development", img: "/categories/web.png" },
   { name: "Android Apps", img: "/categories/android.png" },
@@ -121,7 +139,77 @@ const Home = ({ darkMode }) => {
   </div>
 </section>
 
+{/* ================= Technologies Section ================= */}
+<section className="technologies-section">
+  <h2>Technologies We Use</h2>
 
+  <div className="technologies-grid">
+
+    <div className="tech-card">
+      <FaHtml5 className="tech-icon html" />
+      <p>HTML</p>
+    </div>
+
+    <div className="tech-card">
+      <FaCss3Alt className="tech-icon css" />
+      <p>CSS</p>
+    </div>
+
+    <div className="tech-card">
+      <FaJs className="tech-icon js" />
+      <p>JavaScript</p>
+    </div>
+
+    <div className="tech-card">
+      <FaReact className="tech-icon react" />
+      <p>React</p>
+    </div>
+
+    <div className="tech-card">
+      <SiFirebase className="tech-icon firebase" />
+      <p>Firebase</p>
+    </div>
+
+    <div className="tech-card">
+      <FaPython className="tech-icon python" />
+      <p>Python</p>
+    </div>
+
+    <div className="tech-card">
+      <FaJava className="tech-icon java" />
+      <p>Java</p>
+    </div>
+
+    <div className="tech-card">
+  <FaAndroid className="tech-icon android" />
+  <p>Android Studio</p>
+</div>
+
+
+
+    <div className="tech-card">
+      <SiTensorflow className="tech-icon ml" />
+      <p>Machine Learning</p>
+    </div>
+
+  
+    <div className="tech-card">
+      <SiMongodb className="tech-icon mongo" />
+      <p>MongoDB</p>
+    </div>
+
+    <div className="tech-card">
+      <FaGitAlt className="tech-icon git" />
+      <p>Git</p>
+    </div>
+
+    <div className="tech-card">
+      <FaGithub className="tech-icon github" />
+      <p>GitHub</p>
+    </div>
+
+  </div>
+</section>
       {/* Contact / Call to Action */}
       <section className="contact-cta">
         <h2>Have a Project Idea?</h2>

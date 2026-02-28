@@ -483,3 +483,109 @@ section { animation: fadeInUp 1s ease forwards; }
     background: #f1f1f1;
     color: #000000;
 }
+
+
+
+
+
+/* =====================================
+   Technologies Section
+====================================== */
+
+.technologies-section {
+  padding: 80px 20px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+/* Light Mode */
+.home-container {
+  background: #ffffff;
+  color: #111;
+}
+
+/* Dark Mode */
+.home-container.dark {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.technologies-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  font-weight: 600;
+}
+
+/* GRID */
+.technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Mobile 2 */
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Laptop 4 per row */
+@media (min-width: 992px) {
+  .technologies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* CARD */
+.tech-card {
+  padding: 40px 20px;
+  border-radius: 18px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+/* Light Card */
+.home-container .tech-card {
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Dark Card */
+.home-container.dark .tech-card {
+  background: #1e293b;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.tech-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+  transition: 0.4s ease;
+}
+
+/* Hover Animation */
+.tech-card:hover {
+  transform: translateY(-12px) scale(1.05);
+}
+
+.tech-card:hover .tech-icon {
+  transform: rotate(10deg) scale(1.2);
+}
+
+/* Brand Colors */
+.html { color: #e34f26; }
+.css { color: #1572b6; }
+.js { color: #f7df1e; }
+.react { color: #61dafb; }
+.firebase { color: #ffca28; }
+.python { color: #3776ab; }
+.java { color: #f89820; }
+.sqlite { color: #003b57; }
+.ml { color: #ff6f00; }
+
+.tech-card p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.node { color: #68a063; }
+.mongo { color: #4db33d; }
+.git { color: #f1502f; }
+.github { color: #333; }
+.android { color: #3DDC84; }
