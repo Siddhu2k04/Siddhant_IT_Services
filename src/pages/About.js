@@ -56,7 +56,7 @@ const About = () => {
     Want to work with us on your project? Reach out to me at:{" "}
     <a href="tel:9518941034"><strong>9518941034</strong></a>{" "}
     or email:{" "}
-   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siddhantitservices2024@gmail.com" target="_blank">
+   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siddhantitservices2024@gmail.com" target="_blank"  rel="noopener noreferrer">
   <strong>siddhantitservices2024@gmail.com</strong>
 </a>
   </p>

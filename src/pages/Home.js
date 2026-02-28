@@ -1,6 +1,29 @@
 import React from "react";      
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaFirebase,
+  FaPython,
+  FaJava
+} from "react-icons/fa";
+import { SiSqlite, SiTensorflow } from "react-icons/si";
+
+const techList = [
+  { icon: <FaHtml5 />, name: "HTML" },
+  { icon: <FaCss3Alt />, name: "CSS" },
+  { icon: <FaJs />, name: "JavaScript" },
+  { icon: <FaReact />, name: "React" },
+  { icon: <FaFirebase />, name: "Firebase" },
+  { icon: <FaPython />, name: "Python" },
+  { icon: <FaJava />, name: "Java" },
+  { icon: <SiSqlite />, name: "SQLite" },
+  { icon: <SiTensorflow />, name: "Machine Learning" }
+];
+
 
 const categories = [
   { name: "Web Development", img: "/categories/web.png" },
