@@ -4,8 +4,9 @@ import {
   FaLinkedin,
   FaInstagram,
   FaGithub,
-  FaTwitter
+  
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import "../styles/Contact.css";
 
 const Follow = () => {
@@ -54,14 +55,16 @@ const Follow = () => {
             <FaGithub />
           </a>
 
-          <a
-            href="https://x.com/Siddhant_2k04?t=pjnrFgLsuScNBJF5eE7qBg&s=09"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon twitter"
-          >
-            <FaTwitter />
-          </a>
+   
+
+<a
+  href="https://x.com/Siddhant_2k04"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="icon twitter"
+>
+  <FaXTwitter />
+</a>
 
         </div>
       </div>

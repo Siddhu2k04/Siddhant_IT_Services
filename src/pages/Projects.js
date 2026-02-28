@@ -12,9 +12,6 @@ import "../styles/Projects.css";
 
 
 
-
-
-
 const Projects = ({ darkMode }) => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);

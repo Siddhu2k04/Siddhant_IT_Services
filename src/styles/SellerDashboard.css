@@ -275,13 +275,19 @@ body.dark .project-card p {
 }
 
 /* Description */
-.project-modal p {
+.project-modal  {
   font-size: 15px;
   line-height: 1.6;
   margin: 8px 0;
   color: var(--text-muted, #64748b);
 }
 
+p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 8px 0;
+  color: var(--text-muted, #ef1330);
+}
 /* ===============================
    BUTTON SECTION
 ================================ */
@@ -347,7 +353,7 @@ body.dark .project-card p {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: inherit;
+  color: #020617;
   transition: 0.2s ease;
 }
 
@@ -400,9 +406,7 @@ body.dark .project-modal {
   color: #f8fafc;
 }
 
-body.dark .project-modal p {
-  color: #94a3b8;
-}
+
 
 body.dark .project-links a {
   background: #3b82f6;
@@ -484,7 +488,7 @@ body.dark .project-links a:hover {
   height: 40px;
   border-radius: 50%;
   border: none;
-  background: #f3f4f6;
+  background: #f50000;
   font-size: 22px;
   font-weight: bold;
   cursor: pointer;
