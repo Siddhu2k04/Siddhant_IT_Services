@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import {
   collection,
   getDocs,
@@ -62,6 +64,20 @@ const validate = () => {
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
 }; 
+
+const location = useLocation();
+
+
+useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const categoryFromURL = params.get("category");
+
+  if (categoryFromURL) {
+    setSearchCategory(categoryFromURL);
+  }
+}, [location.search]);
+
+
 
   /* ================= FETCH APPROVED PROJECTS ================= */
   useEffect(() => {

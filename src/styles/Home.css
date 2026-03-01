@@ -64,7 +64,7 @@ section { animation: fadeInUp 1s ease forwards; }
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 /* Buttons */
@@ -156,6 +156,21 @@ section { animation: fadeInUp 1s ease forwards; }
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
 .category-card:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 8px 30px var(--shadow-light);
@@ -189,9 +204,7 @@ section { animation: fadeInUp 1s ease forwards; }
     box-shadow: 0 4px 20px var(--shadow-dark);
 }
 
-.home-container.dark .category-card .btn {
-    background: var(--btn-dark);
-}
+
 
 .home-container.dark .category-card .btn:hover {
     background: var(--btn-hover-dark);
@@ -352,12 +365,12 @@ section { animation: fadeInUp 1s ease forwards; }
 /* ========================== */
 /* Testimonials */
 .testimonials {
-    margin: 80px 0;
+    margin: 1px 0;
 }
 
 .testimonials h2 {
     font-size: 2rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: var(--dmode);
 }
 
@@ -388,7 +401,7 @@ section { animation: fadeInUp 1s ease forwards; }
 /* ========================== */
 /* Contact / CTA */
 .contact-cta {
-    margin: 80px 0;
+    margin: 8px 0;
 }
 
 .contact-cta h2 {

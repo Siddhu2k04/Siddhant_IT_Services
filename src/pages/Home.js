@@ -21,10 +21,23 @@ import {
 } from "react-icons/si";
 
 const categories = [
+  { name: "Mini Project", img: "/categories/mini.png" },
+  { name: "Major Project", img: "/categories/major.png" },
+  { name: "Final Year Project", img: "/categories/finalyear.png" },
+
   { name: "Web Development", img: "/categories/web.png" },
-  { name: "Android Apps", img: "/categories/android.png" },
+  { name: "Full Stack Development", img: "/categories/fullstack.png" },
+  { name: "Android App", img: "/categories/android.png" },
   { name: "AI / ML", img: "/categories/ai.png" },
-  { name: "React JS", img: "/categories/react.png" },
+
+  { name: "Data Science", img: "/categories/datascience.png" },
+  { name: "Cyber Security", img: "/categories/cybersecurity.png" },
+  { name: "Blockchain", img: "/categories/blockchain.png" },
+  { name: "Cloud Computing", img: "/categories/cloud.png" },
+
+  { name: "Python Project", img: "/categories/python.png" },
+  { name: "Java Project", img: "/categories/java.png" },
+  { name: "Database System", img: "/categories/database.png" }
 ];
 
 const projects = [

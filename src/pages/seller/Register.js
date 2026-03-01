@@ -56,7 +56,7 @@ const SellerRegister = () => {
         alert("Seller already exists. Please login.");
       }
 
-      navigate("/seller-login");
+      navigate("/login");
     } catch (error) {
       console.log(error.message);
       alert(error.message);

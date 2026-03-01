@@ -500,3 +500,10 @@ body.dark .project-links a:hover {
   color: white;
   transform: rotate(90deg);
 }
+
+
+
+.scroll-select {
+  max-height: 200px;
+  overflow-y: auto;
+}

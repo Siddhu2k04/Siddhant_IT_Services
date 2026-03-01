@@ -89,8 +89,10 @@ const AdminDashboard = () => {
 
               <div className="card-body">
                 <h3>{proj.title}</h3>
+                <p><b>Description:</b> {proj.description}</p>
+                 <p><b>Category:</b> {proj.category}</p>
                 <p><b>Seller:</b> {proj.sellerName}</p>
-                <p><b>Category:</b> {proj.category}</p>
+                <p><b>Price:</b> ₹{proj.price}</p>
 
                 <span className={`status ${proj.approved ? "approved" : "pending"}`}>
                   {proj.approved ? "Approved" : "Pending"}
