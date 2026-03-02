@@ -37,19 +37,19 @@ const categories = [
 ];
 
 
-
-
-
-const Home = ({ darkMode }) => {
-  const navigate = useNavigate();
-
-
   const words = [
   "Mini & Final Year Projects",
   "Custom Software Development",
   "Source Code + Report + PPT",
   "Full Explanation Support"
 ];
+
+
+const Home = ({ darkMode }) => {
+  const navigate = useNavigate();
+
+
+
 
 const [text, setText] = useState("");
 const [wordIndex, setWordIndex] = useState(0);
@@ -80,7 +80,7 @@ useEffect(() => {
   }, speed);
 
   return () => clearTimeout(timer);
-}, [charIndex, isDeleting, wordIndex]);
+}, [charIndex, isDeleting, wordIndex ]);
 
 
   return (
