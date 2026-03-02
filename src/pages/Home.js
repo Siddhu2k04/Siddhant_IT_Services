@@ -1,7 +1,7 @@
 import React from "react";      
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
-
+ import { useEffect, useState } from "react";
 
 import {
   FaHtml5,
@@ -43,18 +43,79 @@ const categories = [
 const Home = ({ darkMode }) => {
   const navigate = useNavigate();
 
+
+  const words = [
+  "Mini & Final Year Projects",
+  "Custom Software Development",
+  "Source Code + Report + PPT",
+  "Full Explanation Support"
+];
+
+const [text, setText] = useState("");
+const [wordIndex, setWordIndex] = useState(0);
+const [charIndex, setCharIndex] = useState(0);
+const [isDeleting, setIsDeleting] = useState(false);
+
+useEffect(() => {
+  const currentWord = words[wordIndex];
+  let speed = isDeleting ? 50 : 100;
+
+  const timer = setTimeout(() => {
+    if (!isDeleting) {
+      setText(currentWord.substring(0, charIndex + 1));
+      setCharIndex(charIndex + 1);
+
+      if (charIndex === currentWord.length) {
+        setTimeout(() => setIsDeleting(true), 1200);
+      }
+    } else {
+      setText(currentWord.substring(0, charIndex - 1));
+      setCharIndex(charIndex - 1);
+
+      if (charIndex === 0) {
+        setIsDeleting(false);
+        setWordIndex((wordIndex + 1) % words.length);
+      }
+    }
+  }, speed);
+
+  return () => clearTimeout(timer);
+}, [charIndex, isDeleting, wordIndex]);
+
+
   return (
     <div className={`home-container ${darkMode ? "dark" : ""}`}>
 
-      {/* Hero Section */}
-      <section className="hero">
-        <h1>Welcome to Siddhant IT Services</h1>
-        <p>Mini & Mega Projects | Ready College Projects | Learn & Earn</p>
-        <div className="buttons">
-          <button className="btn" onClick={() => navigate("/projects")}>View Projects</button>
-          <button className="btn" onClick={() => navigate("/hire-us")}>Hire Custom Project</button>
-        </div>
-      </section>
+    
+
+{/* Ultra Modern Hero */}
+<section className="hero">
+  <div className="hero-content">
+
+    <h1>
+      Welcome to <span>Siddhant IT Services</span>
+    </h1>
+
+    <h2 className="typing-text">
+      {text}
+    </h2>
+
+    <p>
+      We provide ready college projects, custom development,
+      full documentation, and expert explanation support.
+    </p>
+
+    <div className="hero-buttons">
+      <button className="btn primary" onClick={() => navigate("/projects")}>
+        View Projects
+      </button>
+      <button className="btn secondary" onClick={() => navigate("/hire-us")}>
+        Hire Custom Project
+      </button>
+    </div>
+
+  </div>
+</section>
 
 
 <a
