@@ -36,12 +36,6 @@ const categories = [
   { name: "Database System", img: "/categories/database.png" }
 ];
 
-const projects = [
-  { name: "Library Management System", tech: "Java, SQLite", img: "/library.png" },
-  { name: "Crop Disease Prediction", tech: "Python, ML", img: "crop.png" },
-  { name: "File Sharing System", tech: "Firebase ", img: "filesharing.png" },
-  { name: "Grampanchayat Portal", tech: "React, Firebase", img: "/grampanchyat.png" },
-];
 
 
 
