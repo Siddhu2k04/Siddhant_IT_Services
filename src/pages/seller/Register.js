@@ -27,7 +27,7 @@ const SellerRegister = () => {
       });
 
       alert("Registered successfully! Wait for admin approval.");
-      navigate("/login");
+      navigate("/login",{ replace: true });
     } catch (error) {
       console.log(error.message);
       alert(error.message);
@@ -56,7 +56,7 @@ const SellerRegister = () => {
         alert("Seller already exists. Please login.");
       }
 
-      navigate("/login");
+      navigate("/login",{ replace: true });
     } catch (error) {
       console.log(error.message);
       alert(error.message);

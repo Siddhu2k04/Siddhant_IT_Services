@@ -19,11 +19,11 @@ const BecomeSeller = () => {
         <p>Join Siddhant IT Services and start earning by selling your projects!</p>
 
         <div className="seller-buttons">
-          <button onClick={() => navigate("/seller/register")}>
+          <button onClick={() => navigate("/seller/register", { replace: true })}>
             Register as Seller
           </button>
 
-          <button onClick={() => navigate("/seller/login")}>
+          <button onClick={() => navigate("/seller/login", { replace: true })}>
             Seller Login
           </button>
         </div>

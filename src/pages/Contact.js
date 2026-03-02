@@ -4,6 +4,7 @@ import {
   FaLinkedin,
   FaInstagram,
   FaGithub,
+  FaEnvelope
   
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -33,6 +34,15 @@ const Follow = () => {
             className="icon linkedin"
           >
             <FaLinkedin />
+          </a>
+
+          <a 
+          href="mailto:siddhantitservices@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon email"
+          >
+            <FaEnvelope />
           </a>
 
           <a

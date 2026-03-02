@@ -106,10 +106,10 @@ useEffect(() => {
     </p>
 
     <div className="hero-buttons">
-      <button className="btn primary" onClick={() => navigate("/projects")}>
+      <button className="btn primary" onClick={() => navigate("/projects", { replace: true })}>
         View Projects
       </button>
-      <button className="btn secondary" onClick={() => navigate("/hire-us")}>
+      <button className="btn secondary" onClick={() => navigate("/hire-us",{ replace: true })}>
         Hire Custom Project
       </button>
     </div>
@@ -146,7 +146,7 @@ useEffect(() => {
               <button
                 className="btn"
                 onClick={() =>
-                  navigate(`/projects?category=${encodeURIComponent(cat.name)}`)
+                  navigate(`/projects?category=${encodeURIComponent(cat.name)}`, { replace: true })
                 }
               >
                 View Projects
@@ -178,6 +178,7 @@ useEffect(() => {
           </div>
         </div>
       </section>
+{/* Pricing Section */}
 <section className="pricing">
   <h2>Our Pricing</h2>
 
@@ -188,7 +189,14 @@ useEffect(() => {
     <p>✔ Source Code</p>
     <p>✔ Project Report</p>
     <p>✔ PPT</p>
-    <button>Get Started</button>
+    <button
+      className="btn"
+      onClick={() =>
+        navigate(`/projects?category=${encodeURIComponent("Mini Project")}`,{ replace: true })
+      }
+    >
+      Get Started
+    </button>
   </div>
 
   <div className="price-card standard">
@@ -199,7 +207,14 @@ useEffect(() => {
     <p>✔ Report + PPT</p>
     <p>✔ Basic Customization</p>
     <p>✔ Explanation Support</p>
-    <button>Get Started</button>
+    <button
+      className="btn"
+      onClick={() =>
+        navigate(`/projects?category=${encodeURIComponent("Major Project")}`,{ replace: true })
+      }
+    >
+      Get Started
+    </button>
   </div>
 
   <div className="price-card premium">
@@ -210,7 +225,14 @@ useEffect(() => {
     <p>✔ Complete Documentation</p>
     <p>✔ Viva Explanation</p>
     <p>✔ Lifetime Support</p>
-    <button>Get Started</button>
+    <button
+      className="btton"
+      onClick={() =>
+        navigate(`/projects?category=${encodeURIComponent("Final Year Project")}`,{ replace: true })
+      }
+    >
+      Get Started
+    </button>
   </div>
 </section>
 
