@@ -247,7 +247,7 @@ useEffect(() => {
 
     try {
       // ✅ 1. Create order from backend
-      const res = await fetch("http://localhost:5000/create-order", {
+      const res = await fetch("https://siddhant-it-services-backend.vercel.app//create-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
