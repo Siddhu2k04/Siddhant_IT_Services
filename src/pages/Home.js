@@ -90,7 +90,7 @@ useEffect(() => {
 
 {/* Ultra Modern Hero */}
 <section className="hero">
-  <div className="hero-content">
+  <div className="-contenthero">
 
     <h1>
       Welcome to <span>Siddhant IT Services</span>
@@ -226,7 +226,7 @@ useEffect(() => {
     <p>✔ Viva Explanation</p>
     <p>✔ Lifetime Support</p>
     <button
-      className="btton"
+      className="btn"
       onClick={() =>
         navigate(`/projects?category=${encodeURIComponent("Final Year Project")}`)
       }

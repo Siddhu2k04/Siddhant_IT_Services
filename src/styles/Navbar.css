@@ -219,6 +219,11 @@ body {
   padding-top: 70px; /* Prevent content hiding under navbar */
 }
 
+/* Disable Scroll When Menu Open */
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
 
 /* ================================
    AUTO HIDE HEADER ON SCROLL

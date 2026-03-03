@@ -30,6 +30,20 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.classList.add("menu-open");
+  } else {
+    document.body.classList.remove("menu-open");
+  }
+
+  return () => {
+    document.body.classList.remove("menu-open");
+  };
+}, [menuOpen]);
+
+
   return (
     <header
       className={`header 
