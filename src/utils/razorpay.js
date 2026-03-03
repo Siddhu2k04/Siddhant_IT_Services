@@ -1,16 +1,16 @@
-export const openRazorpay = ({ amount, onSuccess }) => {
+export const openRazorpay = ({ amount, order_id, onSuccess }) => {
+
   const options = {
-    key: "rzp_live_SKnAAXsoSOko7w", // test key
+    key: "rzp_live_SMhI1okDd89hy0", // your Razorpay key
     amount: amount * 100,
     currency: "INR",
-    name: "Siddhant IT Services",
-    description: "Project Purchase",
+    order_id: order_id,
     handler: function (response) {
       onSuccess(response);
     },
     theme: {
-      color: "#2196F3"
-    }
+      color: "#3399cc",
+    },
   };
 
   const rzp = new window.Razorpay(options);

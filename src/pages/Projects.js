@@ -240,35 +240,56 @@ useEffect(() => {
 {errors.phone && <p className="error">{errors.phone}</p>}
 
 
-   <button
+  <button
   className="pay-btn"
-  onClick={() => {
-    if (!validate()) return; // 👈 use proper validation
+  onClick={async () => {
+    if (!validate()) return;
 
-    openRazorpay({
-      amount: selectedProject.price,
-      onSuccess: async (response) => {
-
-        await addDoc(collection(db, "payments"), {
-          name,
-          email,
-          phone,
-          projectId: selectedProject.id,
+    try {
+      // ✅ 1. Create order from backend
+      const res = await fetch("http://localhost:5000/create-order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           amount: selectedProject.price,
-          paymentId: response.razorpay_payment_id,
-          status: "success",
-          createdAt: new Date()
-        });
+        }),
+      });
 
-        alert("Payment successful! GitHub unlocked 🔓");
-        window.open(selectedProject.githubLink, "_blank");
-      }
-    });
+      const order = await res.json();
+
+      // ✅ 2. Open Razorpay with order_id
+      openRazorpay({
+        amount: selectedProject.price,
+        order_id: order.id, // 🔥 Added
+        onSuccess: async (response) => {
+
+          await addDoc(collection(db, "payments"), {
+            name,
+            email,
+            phone,
+            projectId: selectedProject.id,
+            amount: selectedProject.price,
+            paymentId: response.razorpay_payment_id,
+            orderId: response.razorpay_order_id, // 🔥 Added
+            status: "success",
+            createdAt: new Date()
+          });
+
+          alert("Payment successful! GitHub unlocked 🔓");
+          window.open(selectedProject.githubLink, "_blank");
+        }
+      });
+
+    } catch (error) {
+      console.error("Payment error:", error);
+      alert("Payment failed. Try again.");
+    }
   }}
 >
   Confirm & Pay
 </button>
-
   </div>
 )}
              <a

@@ -90,7 +90,7 @@ useEffect(() => {
 
 {/* Ultra Modern Hero */}
 <section className="hero">
-  <div className="hero-content">
+  <div className="-contenthero">
 
     <h1>
       Welcome to <span>Siddhant IT Services</span>
