@@ -106,10 +106,10 @@ useEffect(() => {
     </p>
 
     <div className="hero-buttons">
-      <button className="btn primary" onClick={() => navigate("/projects", { replace: true })}>
+      <button className="btn primary" onClick={() => navigate("/projects")}>
         View Projects
       </button>
-      <button className="btn secondary" onClick={() => navigate("/hire-us",{ replace: true })}>
+      <button className="btn secondary" onClick={() => navigate("/hire-us")}>
         Hire Custom Project
       </button>
     </div>
@@ -146,7 +146,7 @@ useEffect(() => {
               <button
                 className="btn"
                 onClick={() =>
-                  navigate(`/projects?category=${encodeURIComponent(cat.name)}`, { replace: true })
+                  navigate(`/projects?category=${encodeURIComponent(cat.name)}`)
                 }
               >
                 View Projects
@@ -192,7 +192,7 @@ useEffect(() => {
     <button
       className="btn"
       onClick={() =>
-        navigate(`/projects?category=${encodeURIComponent("Mini Project")}`,{ replace: true })
+        navigate(`/projects?category=${encodeURIComponent("Mini Project")}`)
       }
     >
       Get Started
@@ -210,7 +210,7 @@ useEffect(() => {
     <button
       className="btn"
       onClick={() =>
-        navigate(`/projects?category=${encodeURIComponent("Major Project")}`,{ replace: true })
+        navigate(`/projects?category=${encodeURIComponent("Major Project")}`)
       }
     >
       Get Started
@@ -228,7 +228,7 @@ useEffect(() => {
     <button
       className="btton"
       onClick={() =>
-        navigate(`/projects?category=${encodeURIComponent("Final Year Project")}`,{ replace: true })
+        navigate(`/projects?category=${encodeURIComponent("Final Year Project")}`)
       }
     >
       Get Started

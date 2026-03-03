@@ -20,7 +20,7 @@ const SellerLogin = () => {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        navigate("/seller/seller-dashboard", { replace: true });
+        navigate("/seller/seller-dashboard");
          // Direct login
       } else {
         alert("Seller not found. Please register first.");
@@ -50,7 +50,7 @@ const SellerLogin = () => {
         alert("Registered successfully!");
       }
 
-    navigate("/seller/seller-dashboard",{ replace: true });
+    navigate("/seller/seller-dashboard");
 
 // Direct login
     } catch (error) {

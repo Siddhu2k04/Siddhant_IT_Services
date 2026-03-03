@@ -28,7 +28,7 @@ const AdminLogin = () => {
 
       if (password.trim() === admin.password.trim()) {
         localStorage.setItem("adminAuth", "true");
-        navigate("/admin/dashboard",{ replace: true });
+        navigate("/admin/dashboard");
       } else {
         alert("Invalid admin password");
       }
