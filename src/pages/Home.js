@@ -226,7 +226,7 @@ useEffect(() => {
     <p>✔ Viva Explanation</p>
     <p>✔ Lifetime Support</p>
     <button
-      className="btton"
+      className="btn"
       onClick={() =>
         navigate(`/projects?category=${encodeURIComponent("Final Year Project")}`)
       }

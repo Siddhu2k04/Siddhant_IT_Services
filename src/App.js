@@ -17,7 +17,38 @@ import SellerDashboard from "./pages/seller/SellerDashboard";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 
+
+import { useLocation, useNavigate } from "react-router-dom";
 function App() {
+
+
+
+function BackControl() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Push dummy state when not on home
+    if (location.pathname !== "/") {
+      window.history.pushState(null, "", window.location.href);
+    }
+
+    const handleBack = () => {
+      if (location.pathname !== "/") {
+        navigate("/", { replace: true });
+      }
+    };
+
+    window.onpopstate = handleBack;
+
+    return () => {
+      window.onpopstate = null;
+    };
+  }, [location.pathname, navigate]);
+
+  return null;
+}
+
   const [darkMode, setDarkMode] = useState(false);
 
   // Toggle function
@@ -38,6 +69,7 @@ function App() {
 
   return (
     <Router>
+      <BackControl />
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Routes>
         <Route path="/" element={<Home darkMode={darkMode} />} />
