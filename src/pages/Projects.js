@@ -26,6 +26,8 @@ const [email, setEmail] = React.useState("");
 const [phone, setPhone] = React.useState("");
 const [errors, setErrors] = React.useState({});
 
+const [showWhatsAppBtn, setShowWhatsAppBtn] = useState(false);
+
 const validate = () => {
   let newErrors = {};
 
@@ -187,6 +189,7 @@ useEffect(() => {
               )}
 
          {!showForm ? (
+          
   <button
     className="pay-btn"
     onClick={() => {
@@ -240,13 +243,15 @@ useEffect(() => {
 {errors.phone && <p className="error">{errors.phone}</p>}
 
 
-  <button
+<button
   className="pay-btn"
   onClick={async () => {
     if (!validate()) return;
 
+    // ✅ OPEN TAB HERE (IMPORTANT FIX)
+    
+
     try {
-      // ✅ 1. Create order from backend
       const res = await fetch("https://siddhant-it-services-backend.vercel.app/create-order", {
         method: "POST",
         headers: {
@@ -259,34 +264,65 @@ useEffect(() => {
 
       const order = await res.json();
 
-      // ✅ 2. Open Razorpay with order_id
       openRazorpay({
         amount: selectedProject.price,
-        order_id: order.id, // 🔥 Added
-        onSuccess: async (response) => {
+        order_id: order.id,
 
-          await addDoc(collection(db, "payments"), {
-            name,
-            email,
-            phone,
-            projectId: selectedProject.id,
-            amount: selectedProject.price,
-            paymentId: response.razorpay_payment_id,
-            orderId: response.razorpay_order_id, // 🔥 Added
-            status: "success",
-            createdAt: new Date()
+        onSuccess: async (response) => {
+  try {
+    const paymentData = {
+      name,
+      email,
+      phone,
+      projectId: selectedProject?.id,
+      sellerId: selectedProject?.sellerId,
+      amount: selectedProject?.price,
+      paymentId: response?.razorpay_payment_id,
+      status: "success",
+      createdAt: new Date(),
+    };
+
+    if (order && order.id) {
+      paymentData.orderId = order.id;
+    }
+
+    await addDoc(collection(db, "payments"), paymentData);
+
+    // ✅ CALL BACKEND TO SEND EMAIL
+    await fetch("https://siddhant-it-services-backend.vercel.app/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        githubLink: selectedProject.githubLink,
+        projectName: selectedProject.title,
+      }),
+    });
+
+    setShowWhatsAppBtn(true);
+
+
+    alert("Payment successful! GitHub link sent to your email 📩");
+
+   
+
+  } catch (err) {
+    console.error("Error:", err);
+    alert("Something went wrong");
+  }
+}
+          ,
           });
 
-          alert("Payment successful! GitHub unlocked 🔓");
-          window.open(selectedProject.githubLink, "_blank");
+          } catch (error) {
+          console.error("Payment error:", error);
+           alert("Payment failed. Try again.");
+         }
         }
-      });
-
-    } catch (error) {
-      console.error("Payment error:", error);
-      alert("Payment failed. Try again.");
-    }
-  }}
+        }
 >
   Confirm & Pay
 </button>
@@ -297,6 +333,43 @@ useEffect(() => {
 >
   📞 Contact Now
 </a>
+
+ {showWhatsAppBtn && (
+      <button
+        className="pay-btn"
+        onClick={() => {
+          const cleanPhone = (phone) => {
+            let p = phone.replace(/\D/g, "");
+            if (!p.startsWith("91")) p = "91" + p;
+            return p;
+          };
+
+          const finalPhone = cleanPhone(phone);
+
+          const message = `Hi ${name} 
+
+ Payment Successful!
+
+ Project: ${selectedProject.title}
+
+ Access your project:
+${selectedProject.githubLink}
+
+
+Thank you for your purchase! `;
+
+
+
+          const url = `https://wa.me/${finalPhone}?text=${encodeURIComponent(message)}`;
+
+          window.open(url, "_blank");
+        }}
+
+        
+      >
+        💬 Get Project on WhatsApp
+      </button>
+    )}
 
             </div>
           </div>

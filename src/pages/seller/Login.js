@@ -54,9 +54,9 @@ const SellerLogin = () => {
 
 // Direct login
     } catch (error) {
-      console.log(error.message);
-      alert(error.message);
-    }
+  console.log("Google login error:", error.code, error.message);
+  alert(error.code);
+}
   };
   return (
     <div className="seller-login-page">

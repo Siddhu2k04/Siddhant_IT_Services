@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
  import { useEffect, useState } from "react";
+ 
 
 import {
   FaHtml5,
@@ -55,6 +56,9 @@ const [text, setText] = useState("");
 const [wordIndex, setWordIndex] = useState(0);
 const [charIndex, setCharIndex] = useState(0);
 const [isDeleting, setIsDeleting] = useState(false);
+
+
+ 
 
 useEffect(() => {
   const currentWord = words[wordIndex];

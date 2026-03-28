@@ -56,7 +56,17 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
     alt="Logo"
     className="logo-img"
   />
-  <span className="logo-text">Siddhant IT Services</span>
+ <span
+  style={{
+    fontSize: "1.6rem",
+    fontWeight: "700",
+    color: darkMode ? "var(--bg-dark)" : "var(--bg-light)"
+  }}
+>
+  <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+    Siddhant IT Services
+  </Link>
+</span>
 </div>
 
       <div

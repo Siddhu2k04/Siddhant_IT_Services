@@ -19,6 +19,8 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 
 import { useLocation, useNavigate } from "react-router-dom";
+
+import ScrollToTop from "./ScrollToTop";
 function App() {
 
 
@@ -85,6 +87,8 @@ function BackControl() {
         <Route path="/admin/dashboard" element={<AdminDashboard darkMode={darkMode} />} />
 
       </Routes>
+
+       <ScrollToTop />  
       <Footer darkMode={darkMode} />
     </Router>
   );

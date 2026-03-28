@@ -178,13 +178,13 @@ body.dark {
 
 @media (max-width: 992px) {
   .hero h1 {
-    font-size: 47px;
+    font-size: 55px;
   }
 }
 
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 40px;
+    font-size: 55px;
   }
 
   .typing-text {
@@ -209,7 +209,7 @@ body.dark {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 24px;
+    font-size: 55px;
   }
 
   .typing-text {
@@ -1108,7 +1108,7 @@ body.dark {
   }
 
   .step p {
-    font-size: 17px;
+    font-size: 22px;
   }
 }
 

@@ -30,6 +30,12 @@ const SellerDashboard = () => {
   const [githubLink, setGithubLink] = useState("");
   const [price, setPrice] = useState(0);
 
+
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
+
+  
   /* ================= AUTH ================= */
   useEffect(() => {
     return onAuthStateChanged(auth, (u) => setUser(u));
@@ -122,7 +128,9 @@ const SellerDashboard = () => {
     setSelectedProject(null);
   };
 
-  const totalEarnings = payments.reduce((s, p) => s + p.amount, 0);
+const totalEarnings = payments.reduce((s, p) => {
+  return s + (Number(p.amount) || 0);
+}, 0);
 
   if (!user) return <p className="center">Login Required</p>;
 
