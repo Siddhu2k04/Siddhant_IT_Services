@@ -68,7 +68,7 @@ const Footer = ({ darkMode }) => {
   </p>
 
   <p>
-    🌐 <a href="https://siddhant-it-services.vercel.app/" target="_blank" rel="noopener noreferrer">Website</a>
+    🌐 <a href="https://siddhu2k04-portfolio.netlify.app" target="_blank" rel="noopener noreferrer">Website</a>
   </p>
 </div>
 

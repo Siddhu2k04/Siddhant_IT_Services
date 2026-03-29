@@ -242,87 +242,76 @@ useEffect(() => {
 />
 {errors.phone && <p className="error">{errors.phone}</p>}
 
-
 <button
   className="pay-btn"
   onClick={async () => {
     if (!validate()) return;
 
-    // ✅ OPEN TAB HERE (IMPORTANT FIX)
-    
-
     try {
-      const res = await fetch("https://siddhant-it-services-backend.vercel.app/create-order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: selectedProject.price,
-        }),
+      // 1️⃣ Create order on backend
+      const res = await fetch('https://siddhant-it-services-backend.vercel.app/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: selectedProject.price }),
       });
 
-      const order = await res.json();
+      const order = await res.json(); // store in 'order'
 
+      if (!res.ok) {
+        console.error("Server error:", order);
+        throw new Error('Payment failed');
+      }
+
+      console.log("Order created:", order);
+
+      // 2️⃣ Open Razorpay payment
       openRazorpay({
-        amount: selectedProject.price,
-        order_id: order.id,
-
+        amount: selectedProject.price * 100, // Razorpay expects paise
+        order_id: order.id, // use correct variable
         onSuccess: async (response) => {
-  try {
-    const paymentData = {
-      name,
-      email,
-      phone,
-      projectId: selectedProject?.id,
-      sellerId: selectedProject?.sellerId,
-      amount: selectedProject?.price,
-      paymentId: response?.razorpay_payment_id,
-      status: "success",
-      createdAt: new Date(),
-    };
+          try {
+            const paymentData = {
+              name,
+              email,
+              phone,
+              projectId: selectedProject?.id,
+              sellerId: selectedProject?.sellerId,
+              amount: selectedProject?.price,
+              paymentId: response?.razorpay_payment_id,
+              status: "success",
+              createdAt: new Date(),
+              orderId: order.id, // include orderId
+            };
 
-    if (order && order.id) {
-      paymentData.orderId = order.id;
+            await addDoc(collection(db, "payments"), paymentData);
+
+            // ✅ Call backend to send email
+            await fetch("https://siddhant-it-services-backend.vercel.app/send-email", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: email,
+                name: name,
+                githubLink: selectedProject.githubLink,
+                projectName: selectedProject.title,
+              }),
+            });
+
+            setShowWhatsAppBtn(true);
+            alert("Payment successful! GitHub link sent to your email 📩");
+
+          } catch (err) {
+            console.error("Error:", err);
+            alert("Something went wrong");
+          }
+        },
+      });
+
+    } catch (error) {
+      console.error("Payment error:", error);
+      alert("Payment failed. Try again.");
     }
-
-    await addDoc(collection(db, "payments"), paymentData);
-
-    // ✅ CALL BACKEND TO SEND EMAIL
-    await fetch("https://siddhant-it-services-backend.vercel.app/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        name: name,
-        githubLink: selectedProject.githubLink,
-        projectName: selectedProject.title,
-      }),
-    });
-
-    setShowWhatsAppBtn(true);
-
-
-    alert("Payment successful! GitHub link sent to your email 📩");
-
-   
-
-  } catch (err) {
-    console.error("Error:", err);
-    alert("Something went wrong");
-  }
-}
-          ,
-          });
-
-          } catch (error) {
-          console.error("Payment error:", error);
-           alert("Payment failed. Try again.");
-         }
-        }
-        }
+  }}
 >
   Confirm & Pay
 </button>

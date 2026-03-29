@@ -102,12 +102,12 @@ body.dark {
 }
 
 .stat-card.approved {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: #03d9a7;
   color: #fff;
 }
 
 .stat-card.pending {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  background: #e46613;
   color: #fff;
 }
 
