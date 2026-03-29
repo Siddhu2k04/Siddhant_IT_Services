@@ -1,7 +1,7 @@
 export const openRazorpay = ({ amount, order_id, onSuccess }) => {
 
   const options = {
-    key: "rzp_live_SMhI1okDd89hy0", // your Razorpay key
+    key: "rzp_live_SX7fvHO1Lr8aKi", // your Razorpay key
     amount: amount * 100,
     currency: "INR",
     order_id: order_id,
