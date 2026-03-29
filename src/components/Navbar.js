@@ -52,7 +52,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
     >
     <div className="logo-container">
   <img
-    src={darkMode ? "/darklogo.png" : "/logo.png"}
+    src={darkMode ? "/logo1.png" : "/darklogo1.png"}
     alt="Logo"
     className="logo-img"
   />
